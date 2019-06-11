@@ -1,6 +1,5 @@
-import java.io.File; 
-import java.util.Scanner; 
-import java.util.*;
+import java.io.File;
+import java.util.Scanner;
 public class TestReadFile 
 {
     private Scanner scanner;
