@@ -1,4 +1,3 @@
-
 //Sean McAleer
 //A simple program that times an event.
 public class TimeTest
