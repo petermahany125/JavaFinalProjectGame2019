@@ -12,9 +12,18 @@ import javax.swing.ImageIcon;
  */
 public class TestBall
 {
-    private int x;
-    private int y;
+    private int x=50;
+    private int y=70;
     private int x2;
     private int y2;
     
+    public TestBall()
+    {
+        getImage();
+    }
+    
+    private void getImage()
+    {
+        ImageIcon ball = new ImageIcon("src/resources/spaceship.png");
+    }
 }
