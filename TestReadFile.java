@@ -8,7 +8,7 @@ public class TestReadFile
         try
         {
             scanner = new Scanner (new File 
-                ("C://Users//AMG_Z//Desktop//JavaFinal//Level1.txt"));
+                ("Level1.txt"));
         }
         catch(Exception e)
         {
