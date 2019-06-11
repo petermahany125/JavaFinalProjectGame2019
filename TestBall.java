@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
  */
 public class TestBall
 {
+    private Image image;
     private int x=50;
     private int y=70;
     private int x2;
@@ -19,11 +20,12 @@ public class TestBall
     
     public TestBall()
     {
-        getImage();
+        createImage();
     }
     
-    private void getImage()
+    private void createImage()
     {
         ImageIcon ball = new ImageIcon("src/resources/spaceship.png");
+        image = ball.getImage();
     }
 }
