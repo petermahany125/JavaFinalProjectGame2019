@@ -1,91 +1,38 @@
 import java.io.File;
-import java.io.IOException; 
-import java.util.Scanner;
-import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
 public class TestAudio
 { 
-    // to store current position 
-    Long currentFrame; 
-    Clip clip; 
-    
-    // current status of clip 
-    String status; 
-    
-    AudioInputStream audioInputStream; 
-    static String filePath; 
-    
-    // constructor to initialize streams and clip 
-    public TestAudio() 
-        throws UnsupportedAudioFileException, 
-        IOException, LineUnavailableException  
-    { 
-        // create AudioInputStream object 
-        audioInputStream =  
-                AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile()); 
-          
-        // create clip reference 
-        clip = AudioSystem.getClip(); 
-          
-        // open audioInputStream to the clip 
-        clip.open(audioInputStream); 
-          
-        clip.loop(Clip.LOOP_CONTINUOUSLY); 
-    } 
-  
-    public static void main(String[] args)  
-    { 
-        try
-        {
-            filePath = ""; 
-            TestAudio audioPlayer =  
-                            new TestAudio(); 
-              
-            audioPlayer.play(); 
-            Scanner sc = new Scanner(System.in); 
-            sc.close(); 
-        }  
-          
-        catch (Exception ex)  
-        { 
-            System.out.println("Error with playing sound."); 
-            ex.printStackTrace(); 
-          
-          } 
-    }
-      
-    // Method to play the audio 
-    public void play()  
-    { 
-        //start the clip 
-        clip.start(); 
-          
-        status = "play"; 
-    } 
-      
-    // Method to restart the audio 
-    public void restart() throws IOException, LineUnavailableException, 
-                                            UnsupportedAudioFileException  
-    { 
-        clip.stop(); 
-        clip.close(); 
-        resetAudioStream(); 
-        currentFrame = 0L; 
-        clip.setMicrosecondPosition(0); 
-        this.play(); 
-    } 
-    
-    // Method to reset audio stream
-    public void resetAudioStream() throws UnsupportedAudioFileException, IOException, 
-                                            LineUnavailableException  
-    { 
-        audioInputStream = AudioSystem.getAudioInputStream( 
-        new File(filePath).getAbsoluteFile()); 
-        clip.open(audioInputStream); 
-        clip.loop(Clip.LOOP_CONTINUOUSLY); 
-    } 
+   public static void main(String[] args)
+   {
+       File beginning = new File("Windows_Sci-fi_1998_start_up_sound-s0THF0iMrfQ.WAV");
+       File robloxSound = new File("Roblox_Death_Sound_-_Sound_Effect_HD-3w-2gUSus34.WAV");
+       File error = new File("Microsoft_Windows_98_Error_-_Sound_Effect_HD-9sycZ4GnUA4.WAV");
+       File levelUp = new File("Level_Up_Sound_Effect-P_u0k2uElHI.WAV");
+       File splat = new File("Cartoon_Splat_Sound_Effect-KcOLdg0PotI.WAV");
+       
+       playSound(beginning);
+       
+       playSound(robloxSound);
+       
+       playSound(error);
+       
+       playSound(levelUp);
+       
+       playSound(splat);
+       
+   }
+   public static void playSound(File Sound)
+   {
+       try
+       {
+           Clip clip = AudioSystem.getClip();
+           clip.open(AudioSystem.getAudioInputStream(Sound));
+           clip.start();
+           Thread.sleep(clip.getMicrosecondLength()/1000);
+       }
+       catch (Exception e)
+       {      
+       }
+   }
 }

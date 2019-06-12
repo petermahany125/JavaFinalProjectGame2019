@@ -31,6 +31,5 @@ public class TestStartingScreen
     public static void main(String[] args)
     {
         createStartingScreen();
-        
     }
 }
