@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.*;
 
 public class TestStartingScreen
 {
@@ -15,9 +16,12 @@ public class TestStartingScreen
         textLabel.setPreferredSize(new Dimension(100, 100));
         frame.getContentPane().add(textLabel, BorderLayout.NORTH);
         
+        JPanel buttonPanel = new JPanel(new GridLayout(0, 3, 6, 5));
+        buttonPanel.setBorder(new EmptyBorder(338, 233, 0, 0));
         JButton play = new JButton("PLAY");
-        play.setSize(new Dimension(500, 500));
-        frame.getContentPane().add(play, BorderLayout.SOUTH);
+        play.setPreferredSize(new Dimension(100, 200));
+        frame.getContentPane().add(play, BorderLayout.CENTER);
+        
         
         
         frame.setLocationRelativeTo(null);

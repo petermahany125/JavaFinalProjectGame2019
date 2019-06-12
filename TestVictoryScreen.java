@@ -1,7 +1,7 @@
 
 import java.awt.*;
 import javax.swing.*;
-
+import java.awt.Font;
 
 public class TestVictoryScreen
 {
@@ -18,9 +18,10 @@ public class TestVictoryScreen
         textLabel.setPreferredSize(new Dimension(100, 100));
         frame.getContentPane().add(textLabel, BorderLayout.NORTH);
         
+        Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 12);
+        Font newFont = myFont.deriveFont(50F);
         
-        
-        
+        textLabel.setFont(newFont);
         
         frame.setLocationRelativeTo(null);
         frame.pack();
