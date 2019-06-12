@@ -1,14 +1,20 @@
 import java.io.File;
 import java.util.Scanner;
-public class TestReadFile 
+public class TestReadFile
 {
     private Scanner scanner;
+    private String sp;
+    private String numWalls;
+    private String walls;
+    private String numPaths;
+    private String paths;
+    private String fileName = "Level1.txt";
     public void openFile()
     {
         try
         {
             scanner = new Scanner (new File 
-                ("Level1.txt"));
+                (fileName));
         }
         catch(Exception e)
         {
@@ -18,13 +24,10 @@ public class TestReadFile
 
     public void readFile()
     {
-        String len = scanner.next();
-        String wid = scanner.next();
-        String sp = scanner.next();
-        String numWalls = scanner.next();
-        String walls = "";
-        String numPaths = null;
-        String paths = "";
+        sp = scanner.next();
+        numWalls = scanner.next();
+        walls = "";
+        paths = "";
         while(scanner.hasNext())
         {
             for(int i = 1; i <= Integer.parseInt(numWalls); i++)
@@ -36,16 +39,50 @@ public class TestReadFile
             {
                 paths += scanner.next();
             }
-            System.out.println("Length:" + len + "\nWidth: " + wid + "\nStarting Postion: " + sp + 
-            "\nWalls: " + walls + "\nPaths: " + paths);
+            System.out.println("Starting Postion: " + sp + "\nWalls: " + walls + "\nPaths: " + paths);
         }
+    }
+    
+    public String getSP()
+    {
+        return sp;
+    }
+    
+    public int getNumWalls()
+    {
+        return Integer.parseInt(numWalls);
+    }
+    
+    public String getWalls()
+    {
+        return walls;
+    }
+    
+    public int getNumPaths()
+    {
+        return Integer.parseInt(numPaths);
+    }
+    
+    public String getPaths()
+    {
+        return paths;
+    }
+    
+    public String getFileName()
+    {
+        return fileName;
+    }
+    
+    public void setFileName(String fileName)
+    {
+        this.fileName = fileName;
     }
     
     public void closeFile()
     {
         scanner.close();
     }
-
+    
     public static void main(String[] args)
     {
         TestReadFile r = new TestReadFile();
