@@ -36,7 +36,8 @@ public class TestReadFile
             {
                 paths += scanner.next();
             }
-            System.out.println("Length:" + len + "\nWidth: " + wid + "\nStarting Postion: " + sp + "\nWalls: " + walls + "\nPaths: " + paths);
+            System.out.println("Length:" + len + "\nWidth: " + wid + "\nStarting Postion: " + sp + 
+            "\nWalls: " + walls + "\nPaths: " + paths);
         }
     }
     
