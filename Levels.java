@@ -1,33 +1,17 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-/**
- * Write a description of class Levels here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Levels
+public class Levels extends JPanel
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Levels
-     */
-    public Levels()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+   public void paint(Graphics g)
+   {
+       g.fillRect(100,100,400,400);
+       
+   }
+   public static void main(String[] args)
+   {
+       JFrame frame = new JFrame();
+   }
 }
