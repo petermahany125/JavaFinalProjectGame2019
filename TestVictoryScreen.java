@@ -2,10 +2,13 @@
 import java.awt.*;
 import javax.swing.*;
 
+
 public class TestVictoryScreen
 {
     private static void createVictoryScreen()
     {
+        
+        
         JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("Java Final");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -14,6 +17,7 @@ public class TestVictoryScreen
         JLabel textLabel = new JLabel("CONGRATULATIONS! YOU WON!", SwingConstants.CENTER);
         textLabel.setPreferredSize(new Dimension(100, 100));
         frame.getContentPane().add(textLabel, BorderLayout.NORTH);
+        
         
         
         
