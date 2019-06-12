@@ -50,9 +50,12 @@ public class Levels extends JPanel
             }
             for(int k = 1; k < r.getPaths().length(); k+=4)
             {
-                Block block = new Block(50,50,(Integer.parseInt(r.getWalls().substring(k,k+1))),
-                (Integer.parseInt(r.getWalls().substring(k+2,k+3))));
-                paths.add(block);
+                if(r.getPaths().charAt(k) == '(' || r.getPaths().charAt(k) == ')' || r.getPaths().charAt(k) == ',')
+                {    
+                    Block block = new Block(50,50,(Integer.parseInt(r.getWalls().substring(k,k+1))),
+                    (Integer.parseInt(r.getWalls().substring(k+2,k+3))));
+                    paths.add(block);
+                }
             }
         }
     }
