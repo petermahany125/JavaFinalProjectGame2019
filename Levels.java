@@ -15,6 +15,8 @@ public class Levels extends JPanel
     private String numPaths;
     private String paths;
     private String file;
+    public static final int BLOCK_LENGTH = 50;
+    public static final int BLOCK_WIDTH = 50;
     public Levels()
     {
         ArrayList<String> textFiles = new ArrayList<>();
@@ -33,7 +35,7 @@ public class Levels extends JPanel
          * textFiles.add("Level8.txt");
          * textFiles.add("Level9.txt");
          * textFiles.add("Level10.txt");
-        */
+         */
         for(int i = 0; i < textFiles.size(); i++)
         {
             TestReadFile r = new TestReadFile();
@@ -45,8 +47,8 @@ public class Levels extends JPanel
             {
                 if(r.getWalls().charAt(j) != ',' && r.getWalls().charAt(j) != '.')
                 {
-                    Block block = new Block(50,50,(Integer.parseInt(r.getWalls().substring(j,j+1))),
-                    (Integer.parseInt(r.getWalls().substring(j+2,j+3))));
+                    Block block = new Block(BLOCK_LENGTH,BLOCK_WIDTH,(Integer.parseInt(r.getWalls().substring(j,j+1))),
+                            (Integer.parseInt(r.getWalls().substring(j+2,j+3))));
                     walls.add(block);
                     wallsStrings.add(Block.convertToString(block));
                 }
@@ -55,8 +57,8 @@ public class Levels extends JPanel
             {
                 if(r.getPaths().charAt(k) != ',' && r.getPaths().charAt(k) != '.')
                 {    
-                    Block block = new Block(50,50,(Integer.parseInt(r.getPaths().substring(k,k+1))),
-                    (Integer.parseInt(r.getPaths().substring(k+2,k+3))));
+                    Block block = new Block(BLOCK_LENGTH,BLOCK_WIDTH,(Integer.parseInt(r.getPaths().substring(k,k+1))),
+                            (Integer.parseInt(r.getPaths().substring(k+2,k+3))));
                     paths.add(block);
                     pathsStrings.add(Block.convertToString(block));
                 }
@@ -68,7 +70,7 @@ public class Levels extends JPanel
             r.closeFile();
         }
     }
-    
+
     public void paint(Graphics g)
     {
         g.fillRect(50,50,600,600);
@@ -79,9 +81,9 @@ public class Levels extends JPanel
         g.fillRect(100,50,50,50);
         g.setColor(Color.RED);
         g.fillRect(100,100,50,50);
-        
+
     }
-    
+
     public static void main(String[] args)
     {
         JFrame frame = new JFrame();

@@ -4,7 +4,6 @@ public class TestReadFile
 {
     private Scanner scanner;
     private String sp;
-    
     private String numWalls;
     private String walls;
     private String numPaths;

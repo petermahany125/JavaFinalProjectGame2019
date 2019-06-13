@@ -8,7 +8,6 @@ public class Audio
    private File error = new File("Microsoft_Windows_98_Error_-_Sound_Effect_HD-9sycZ4GnUA4.WAV");
    private File levelUp = new File("Level_Up_Sound_Effect-P_u0k2uElHI.WAV");
    private File splat = new File("Cartoon_Splat_Sound_Effect-KcOLdg0PotI.WAV");
-   
    public static void playSound(File Sound)
    {
        try
@@ -22,27 +21,22 @@ public class Audio
        {      
        }
    }
-   
    public void playBeginning()
    {
        playSound(beginning);
    }
-   
    public void playRoblox()
    {
        playSound(robloxSound);
    }
-   
    public void playError()
    {
        playSound(error);
    }
-   
    public void playLevelUp()
    {
        playSound(levelUp);
    }
-   
    public void playSplat()
    {
        playSound(splat);

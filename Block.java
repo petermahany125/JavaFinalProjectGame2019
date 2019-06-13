@@ -5,6 +5,7 @@ public class Block
     private int length, width, x, y;
     private Color color;
     private Scanner scanner;
+    
     public Block(int len, int wid, int xCor, int yCor)
     {
         length = len;
