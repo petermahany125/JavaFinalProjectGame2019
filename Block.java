@@ -1,15 +1,15 @@
 import java.util.*;
 import java.awt.Color;
 
-public class Block extends Levels
+public class Block
 {
     private int length, width, x, y;
     private Color color;
     private Scanner scanner;
     public Block(int xCor, int yCor)
     {
-        length = BLOCK_LENGTH;
-        width = BLOCK_WIDTH;
+        length = 50;
+        width = 50;
         x = xCor;
         y = yCor;
     }

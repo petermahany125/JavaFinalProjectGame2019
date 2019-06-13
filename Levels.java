@@ -15,12 +15,6 @@ public class Levels extends JPanel
     private String numPaths;
     private String paths;
     private String file;
-    public static final int BLOCK_LENGTH = 50;
-    public static final int BLOCK_WIDTH = 50;
-    public static final int SCREEN_LENGTH = 700;
-    public static final int SCREEN_WIDTH = 700;
-    public static final int BOARD_LENGTH = 600;
-    public static final int BOARD_WIDTH = 600;
     public Levels()
     {
         ArrayList<String> textFiles = new ArrayList<>();
@@ -81,20 +75,20 @@ public class Levels extends JPanel
 
     public void paint(Graphics g)
     {
-        g.fillRect(50,50,BOARD_LENGTH,BOARD_WIDTH);
+        g.fillRect(50,50,600,600);
         g.setColor(Color.RED);
-        g.fillRect(50,50,BLOCK_LENGTH,BLOCK_WIDTH);
+        g.fillRect(50,50,50,50);
         g.setColor(Color.BLUE);
-        g.fillRect(50,100,BLOCK_LENGTH,BLOCK_WIDTH);
-        g.fillRect(100,50,BLOCK_LENGTH,BLOCK_WIDTH);
+        g.fillRect(50,100,50,50);
+        g.fillRect(100,50,50,50);
         g.setColor(Color.RED);
-        g.fillRect(100,100,BLOCK_LENGTH,BLOCK_WIDTH);
+        g.fillRect(100,100,50,50);
     }
 
     public static void main(String[] args)
     {
         JFrame frame = new JFrame();
-        frame.setSize(SCREEN_LENGTH,SCREEN_WIDTH);
+        frame.setSize(700,700);
         frame.getContentPane().add(new Levels());
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.LIGHT_GRAY);
