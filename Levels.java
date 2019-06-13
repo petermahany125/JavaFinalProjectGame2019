@@ -72,6 +72,14 @@ public class Levels extends JPanel
     public void paint(Graphics g)
     {
         g.fillRect(50,50,600,600);
+        g.setColor(Color.RED);
+        g.fillRect(50,50,50,50);
+        g.setColor(Color.BLUE);
+        g.fillRect(50,100,50,50);
+        g.fillRect(100,50,50,50);
+        g.setColor(Color.RED);
+        g.fillRect(100,100,50,50);
+        
     }
     
     public static void main(String[] args)
