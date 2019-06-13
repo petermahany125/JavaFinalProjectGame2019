@@ -1,35 +1,17 @@
-
 import java.awt.*;
 import javax.swing.*;
+import java.awt.Font;
 
 public class TestVictoryScreen
 {
-    private static void createVictoryScreen()
+    private static void createStartingScreen()
     {
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        JFrame frame = new JFrame("Java Final");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(Color.red);
-        
-        JLabel textLabel = new JLabel("CONGRATULATIONS! YOU WON!", SwingConstants.CENTER);
-        textLabel.setPreferredSize(new Dimension(100, 100));
-        frame.getContentPane().add(textLabel, BorderLayout.NORTH);
-        
-        
-        
-        
-        frame.setLocationRelativeTo(null);
-        frame.pack();
-        frame.setVisible(true);
         
     }
     
-    
-
     public static void main(String[] args)
     {
-        createVictoryScreen();
-        
+        createStartingScreen();
     }
 }
 
