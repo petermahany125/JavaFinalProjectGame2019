@@ -1,4 +1,4 @@
-   //Rajiv Srinath
+//Rajiv Srinath
 //Ball
 
 import java.awt.Color;
@@ -18,8 +18,8 @@ public class Ball extends JPanel implements ActionListener, KeyListener
     private int y=0;
     private int xVel=0;
     private int yVel=0;
-    private int rad=50;
-    Timer time = new Timer(5, this);
+    private int rad=25;
+    private Timer time = new Timer(4, this);
     
     public Ball()
     {
@@ -35,6 +35,7 @@ public class Ball extends JPanel implements ActionListener, KeyListener
     public void paint(Graphics g)
     {
         super.paint(g);
+        g.setColor(Color.MAGENTA);
         g.fillOval(x,y,rad,rad);
 
     }
@@ -53,22 +54,22 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         if (key == KeyEvent.VK_RIGHT)
         {
             xVel = 2;
-            yVel =0;
+            yVel = 0;
         }
         else if (key == KeyEvent.VK_LEFT)
         {
             xVel = -2;
-            yVel =0;
+            yVel = 0;
         }
         else if (key == KeyEvent.VK_DOWN)
         {
             yVel = 2;
-            xVel=0;
+            xVel = 0;
         }
         else if  (key == KeyEvent.VK_UP)
         {
             yVel = -2;
-            xVel =0;
+            xVel = 0;
         }
         repaint();
     }
@@ -80,8 +81,8 @@ public class Ball extends JPanel implements ActionListener, KeyListener
     {
         Ball test = new Ball();
         JFrame testJ = new JFrame();
-        testJ.setTitle("sample");
-        testJ.setSize(800,600);
+        testJ.setTitle("Ball");
+        testJ.setSize(600,600);
         testJ.setVisible(true);
         testJ.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         testJ.add(test);
