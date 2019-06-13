@@ -61,12 +61,12 @@ public class Levels extends JPanel
                     pathsStrings.add(Block.convertToString(block));
                 }
             }
+            System.out.println(walls);
+            System.out.println(paths);
+            System.out.println(wallsStrings);
+            System.out.println(pathsStrings);
             r.closeFile();
         }
-        System.out.println(walls);
-        System.out.println(paths);
-        System.out.println(wallsStrings);
-        System.out.println(pathsStrings);
     }
     
     public void paint(Graphics g)
