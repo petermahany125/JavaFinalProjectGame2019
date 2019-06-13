@@ -7,8 +7,6 @@ import javax.swing.JPanel;
 public class Levels extends JPanel
 {
     private Scanner scanner;
-    private String len;
-    private String wid;
     private String sp;
     private String numWalls;
     private String walls;
@@ -17,6 +15,7 @@ public class Levels extends JPanel
     private String file;
     public Levels()
     {
+        String file;
         ArrayList<String> textFiles = new ArrayList<>();
         ArrayList<Block> walls = new ArrayList<>();
         ArrayList<Block> paths = new ArrayList<>();
