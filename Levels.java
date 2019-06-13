@@ -37,7 +37,7 @@ public class Levels extends JPanel
          */
         for(int i = 0; i < textFiles.size(); i++)
         {
-            TestReadFile r = new TestReadFile();
+            ReadFile r = new ReadFile();
             file = textFiles.get(i);
             r.setFileName(file);
             System.out.println("Level " + levelCounter + ": ");

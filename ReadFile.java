@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.File;
-public class TestReadFile
+public class ReadFile
 {
     private Scanner scanner;
     private String sp;
@@ -85,7 +85,7 @@ public class TestReadFile
     
     public static void main(String[] args)
     {
-        TestReadFile r = new TestReadFile();
+        ReadFile r = new ReadFile();
         r.openFile();
         r.readFile();
         r.closeFile();
