@@ -1,5 +1,5 @@
 import java.io.FileOutputStream;  
-public class TestOutputFile 
+public class OutputFile 
 {
     public void openFile()
     {

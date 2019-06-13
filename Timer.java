@@ -1,7 +1,7 @@
 //Sean McAleer
 //A simple program that times an event.
 import java.util.ArrayList;
-public class TimeTest
+public class Timer
 {
     public static void main(String[] args)
     {
