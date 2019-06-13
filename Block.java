@@ -32,4 +32,9 @@ public class Block
     {
         return y;
     }
+    public static String convertToString(Block block)
+    {
+        return "Block: Length = " + block.getLength() + " Width = " + block.getWidth() + " Coordinates = (" 
+        + block.getX() + "," + block.getY() + ")";
+    }
 }

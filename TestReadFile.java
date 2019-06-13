@@ -1,27 +1,29 @@
+import java.util.*;
 import java.io.File;
-import java.util.Scanner;
 public class TestReadFile
 {
     private Scanner scanner;
+    private String len;
+    private String wid;
     private String sp;
     private String numWalls;
     private String walls;
     private String numPaths;
     private String paths;
-    private String fileName = "Level1.txt";
+    private String file = "Level1.txt";
     public void openFile()
     {
         try
         {
             scanner = new Scanner (new File 
-                (fileName));
+                (file));
         }
         catch(Exception e)
         {
             System.out.println("No file was found");
         }
-    }
-
+    } 
+    
     public void readFile()
     {
         sp = scanner.next();
@@ -70,12 +72,12 @@ public class TestReadFile
     
     public String getFileName()
     {
-        return fileName;
+        return file;
     }
     
-    public void setFileName(String fileName)
+    public void setFileName(String file)
     {
-        this.fileName = fileName;
+        this.file = file;
     }
     
     public void closeFile()
