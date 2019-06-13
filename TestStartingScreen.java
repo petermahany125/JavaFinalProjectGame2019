@@ -1,8 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
-
-public class TestStartingScreen
+public class TestStartingScreen extends Levels
 {
     private static void createStartingScreen()
     {
@@ -24,7 +23,7 @@ public class TestStartingScreen
         frame.pack();
         frame.add(p);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700,700);
+        frame.setSize(SCREEN_LENGTH,SCREEN_WIDTH);
         frame.setVisible(true);
         frame.setResizable(false);
     }

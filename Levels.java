@@ -17,6 +17,10 @@ public class Levels extends JPanel
     private String file;
     public static final int BLOCK_LENGTH = 50;
     public static final int BLOCK_WIDTH = 50;
+    public static final int SCREEN_LENGTH = 700;
+    public static final int SCREEN_WIDTH = 700;
+    public static final int BOARD_LENGTH = 600;
+    public static final int BOARD_WIDTH = 600;
     public Levels()
     {
         ArrayList<String> textFiles = new ArrayList<>();
@@ -49,7 +53,7 @@ public class Levels extends JPanel
             {
                 if(r.getWalls().charAt(j) != ',' && r.getWalls().charAt(j) != '.')
                 {
-                    Block block = new Block(BLOCK_LENGTH,BLOCK_WIDTH,(Integer.parseInt(r.getWalls().substring(j,j+1))),
+                    Block block = new Block((Integer.parseInt(r.getWalls().substring(j,j+1))),
                             (Integer.parseInt(r.getWalls().substring(j+2,j+3))));
                     walls.add(block);
                     wallsStrings.add(Block.convertToString(block));
@@ -59,7 +63,7 @@ public class Levels extends JPanel
             {
                 if(r.getPaths().charAt(k) != ',' && r.getPaths().charAt(k) != '.')
                 {    
-                    Block block = new Block(BLOCK_LENGTH,BLOCK_WIDTH,(Integer.parseInt(r.getPaths().substring(k,k+1))),
+                    Block block = new Block((Integer.parseInt(r.getPaths().substring(k,k+1))),
                             (Integer.parseInt(r.getPaths().substring(k+2,k+3))));
                     paths.add(block);
                     pathsStrings.add(Block.convertToString(block));
@@ -77,21 +81,20 @@ public class Levels extends JPanel
 
     public void paint(Graphics g)
     {
-        g.fillRect(50,50,600,600);
+        g.fillRect(50,50,BOARD_LENGTH,BOARD_WIDTH);
         g.setColor(Color.RED);
-        g.fillRect(50,50,50,50);
+        g.fillRect(50,50,BLOCK_LENGTH,BLOCK_WIDTH);
         g.setColor(Color.BLUE);
-        g.fillRect(50,100,50,50);
-        g.fillRect(100,50,50,50);
+        g.fillRect(50,100,BLOCK_LENGTH,BLOCK_WIDTH);
+        g.fillRect(100,50,BLOCK_LENGTH,BLOCK_WIDTH);
         g.setColor(Color.RED);
-        g.fillRect(100,100,50,50);
-
+        g.fillRect(100,100,BLOCK_LENGTH,BLOCK_WIDTH);
     }
 
     public static void main(String[] args)
     {
         JFrame frame = new JFrame();
-        frame.setSize(700,700);
+        frame.setSize(SCREEN_LENGTH,SCREEN_WIDTH);
         frame.getContentPane().add(new Levels());
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.LIGHT_GRAY);

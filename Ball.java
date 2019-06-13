@@ -37,7 +37,6 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         super.paint(g);
         g.setColor(Color.MAGENTA);
         g.fillOval(x,y,rad,rad);
-
     }
     
     public void actionPerformed(ActionEvent e)
@@ -74,8 +73,14 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         repaint();
     }
     
-    public void keyTyped(KeyEvent e){}
-    public void keyReleased(KeyEvent e){}
+    public void keyTyped(KeyEvent e)
+    {
+        
+    }
+    public void keyReleased(KeyEvent e)
+    {
+        
+    }
     
     public static void main(String args[])
     {
