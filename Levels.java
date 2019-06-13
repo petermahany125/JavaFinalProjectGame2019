@@ -24,6 +24,7 @@ public class Levels extends JPanel
         ArrayList<Block> paths = new ArrayList<>();
         ArrayList<String> wallsStrings = new ArrayList<>();
         ArrayList<String> pathsStrings = new ArrayList<>();
+        int levelCounter = 1;
         textFiles.add("Level1.txt");
         /*
          * textFiles.add("Level2.txt");
@@ -41,6 +42,7 @@ public class Levels extends JPanel
             TestReadFile r = new TestReadFile();
             file = textFiles.get(i);
             r.setFileName(file);
+            System.out.println("Level " + levelCounter + ": ");
             r.openFile();
             r.readFile();
             for(int j = 0; j < r.getWalls().length() - 3; j += 4)
@@ -67,7 +69,9 @@ public class Levels extends JPanel
             System.out.println(paths);
             System.out.println(wallsStrings);
             System.out.println(pathsStrings);
+            System.out.println("----");
             r.closeFile();
+            levelCounter++;
         }
     }
 
