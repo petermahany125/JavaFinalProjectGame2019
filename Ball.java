@@ -1,4 +1,4 @@
-//Rajiv Srinath
+//Rajiv
 //Ball
 
 import java.awt.Color;
