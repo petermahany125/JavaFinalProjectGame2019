@@ -1,33 +1,33 @@
-
-/**
- * Write a description of class TestOutputFile here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class TestOutputFile
+import java.io.FileOutputStream;  
+public class TestOutputFile 
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class TestOutputFile
-     */
-    public TestOutputFile()
+    public void openFile()
     {
-        // initialise instance variables
-        x = 0;
+
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public void outputIntoFile()
     {
-        // put your code here
-        return x + y;
+
     }
+
+    public void closeFile()
+    {
+
+    }
+
+    public static void main(String args[])
+    {    
+        try
+        {    
+            FileOutputStream a = new FileOutputStream("HighScoreOutput.txt");    
+            a.write(65);    
+            a.close();    
+            System.out.println("success...");    
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }    
+    }    
 }

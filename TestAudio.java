@@ -1,33 +1,38 @@
-
-/**
- * Write a description of class TestAudio here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+import java.io.File;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 public class TestAudio
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class TestAudio
-     */
-    public TestAudio()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+{ 
+   public static void main(String[] args)
+   {
+       File beginning = new File("Windows_Sci-fi_1998_start_up_sound-s0THF0iMrfQ.WAV");
+       File robloxSound = new File("Roblox_Death_Sound_-_Sound_Effect_HD-3w-2gUSus34.WAV");
+       File error = new File("Microsoft_Windows_98_Error_-_Sound_Effect_HD-9sycZ4GnUA4.WAV");
+       File levelUp = new File("Level_Up_Sound_Effect-P_u0k2uElHI.WAV");
+       File splat = new File("Cartoon_Splat_Sound_Effect-KcOLdg0PotI.WAV");
+       
+       playSound(beginning);
+       
+       playSound(robloxSound);
+       
+       playSound(error);
+       
+       playSound(levelUp);
+       
+       playSound(splat);
+       
+   }
+   public static void playSound(File Sound)
+   {
+       try
+       {
+           Clip clip = AudioSystem.getClip();
+           clip.open(AudioSystem.getAudioInputStream(Sound));
+           clip.start();
+           Thread.sleep(clip.getMicrosecondLength()/1000);
+       }
+       catch (Exception e)
+       {      
+       }
+   }
 }

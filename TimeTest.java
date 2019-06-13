@@ -1,21 +1,28 @@
-
 //Sean McAleer
 //A simple program that times an event.
+import java.util.ArrayList;
 public class TimeTest
 {
     public static void main(String[] args)
     {
-        System.out.println("Begin Time in milliseconds: ");
         long start = System.currentTimeMillis();
-        System.out.println(start);
+        ArrayList a = new ArrayList();
         
-        //Event
-        
-        System.out.println("End Time in milliseconds: ");
+        //event
+        for (int i = 1; i <= 10000000; i++)
+        {
+            a.add(i);
+        }
+ 
         long end = System.currentTimeMillis();
-        System.out.println(end);
+        long diff = end - start;
         
-        long diffInTime = end - start;
-        System.out.println("Differential in Time: " + diffInTime);
+        int min = (int)((diff/1000) / 60);
+        diff -= (int)((min * 1000) * 60);
+        int seconds = (int)((diff/1000) % 60);
+        diff -= (int)(seconds * 1000);
+        int milli = (int)(diff);
+
+        System.out.println("Minutes: " + min + " Seconds: " + seconds + " Milliseconds: " + milli);
     }
 }
