@@ -6,12 +6,12 @@ public class Block
     private int length, width, x, y;
     private Color color;
     private Scanner scanner;
-    public Block(int xCor, int yCor)
+    public Block(int xCoor, int yCoor)
     {
         length = 50;
         width = 50;
-        x = xCor;
-        y = yCor;
+        x = xCoor;
+        y = yCoor;
     }
     public Block(Color color)
     {

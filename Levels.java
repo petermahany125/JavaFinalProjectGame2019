@@ -23,9 +23,9 @@ public class Levels extends JPanel
         ArrayList<String> pathsStrings = new ArrayList<>();
         int levelCounter = 1;
         textFiles.add("Level1.txt");
-        /*
-         * textFiles.add("Level2.txt");
-         * textFiles.add("Level3.txt");
+        
+        //textFiles.add("Level2.txt");
+         /* textFiles.add("Level3.txt");
          * textFiles.add("Level4.txt");
          * textFiles.add("Level5.txt");
          * textFiles.add("Level6.txt");
@@ -42,32 +42,32 @@ public class Levels extends JPanel
             System.out.println("Level " + levelCounter + ": ");
             r.openFile();
             r.readFile();
-            for(int j = 0; j < r.getWalls().length() - 3; j += 4)
+            for(int j = 0; j < r.getWalls().length() - 4; j += 6)
             {
                 if(r.getWalls().charAt(j) != ',' && r.getWalls().charAt(j) != '.')
                 {
-                    Block block = new Block((Integer.parseInt(r.getWalls().substring(j,j+1))),
-                            (Integer.parseInt(r.getWalls().substring(j+2,j+3))));
+                    Block block = new Block((Integer.parseInt(r.getWalls().substring(j,j+2))),
+                            (Integer.parseInt(r.getWalls().substring(j+3,j+5))));
                     walls.add(block);
                     wallsStrings.add(Block.convertToString(block));
                 }
             }
-            for(int k = 0; k < r.getPaths().length() - 3; k += 4)
+            for(int k = 0; k < r.getPaths().length() - 4; k += 6)
             {
                 if(r.getPaths().charAt(k) != ',' && r.getPaths().charAt(k) != '.')
                 {    
-                    Block block = new Block((Integer.parseInt(r.getPaths().substring(k,k+1))),
-                            (Integer.parseInt(r.getPaths().substring(k+2,k+3))));
+                    Block block = new Block((Integer.parseInt(r.getPaths().substring(k,k+2))),
+                            (Integer.parseInt(r.getPaths().substring(k+3,k+5))));
                     paths.add(block);
                     pathsStrings.add(Block.convertToString(block));
                 }
             }
+            r.closeFile();
             System.out.println(walls);
             System.out.println(paths);
             System.out.println(wallsStrings);
             System.out.println(pathsStrings);
             System.out.println("----");
-            r.closeFile();
             levelCounter++;
         }
     }
@@ -93,5 +93,5 @@ public class Levels extends JPanel
         frame.setBackground(Color.LIGHT_GRAY);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-    } 
+    }
 }
