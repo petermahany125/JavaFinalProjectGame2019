@@ -14,29 +14,28 @@ import javax.swing.Timer;
 
 public class Ball extends JPanel implements ActionListener, KeyListener
 {
-    private int x=0;
-    private int y=0;
+    private int x;
+    private int y;
     private int xVel=0;
     private int yVel=0;
     private int rad=25;
     private Timer time = new Timer(4, this);
-    
-    public Ball()
+    private static Ball ball = new Ball(0,0);
+    public Ball(int xCor, int yCor)
     {
         time.start();
         addKeyListener(this);
-        //setSize(500,500);
-        //setTitle("Test Ball");
-        //setVisible(true);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
+        x = xCor;
+        y = yCor; 
     }
     
     public void paint(Graphics g)
     {
         super.paint(g);
         g.setColor(Color.MAGENTA);
-        g.fillOval(x,y,rad,rad);
+        g.fillOval(ball.getX(),ball.getY(),rad,rad);
     }
     
     public void actionPerformed(ActionEvent e)
@@ -82,14 +81,23 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         
     }
     
+    public void setX(int x)
+    {
+        this.x = x;
+    }
+    
+    public void setY(int y)
+    {
+        this.y = y;
+    }
+    
     public static void main(String args[])
     {
-        Ball test = new Ball();
-        JFrame testJ = new JFrame();
-        testJ.setTitle("Ball");
-        testJ.setSize(600,600);
-        testJ.setVisible(true);
-        testJ.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        testJ.add(test);
+        JFrame frame = new JFrame();       
+        frame.setTitle("Ball");
+        frame.setSize(600,600);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(ball);
     }
 }    
