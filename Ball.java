@@ -21,7 +21,7 @@ public class Ball extends JPanel implements ActionListener, KeyListener
     private int rad=25;
     private Timer time = new Timer(4, this);
     
-    public Ball()
+    public Ball(int x, int y)
     {
         time.start();
         addKeyListener(this);
@@ -30,6 +30,8 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         //setVisible(true);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
+        this.x=x;
+        this.y=y;
     }
     
     public void paint(Graphics g)
@@ -73,6 +75,26 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         repaint();
     }
     
+    public int getX()
+    {
+        return x;
+    }
+    
+    public int getY()
+    {
+        return y;
+    }
+    
+    public void setX(int x)
+    {
+        this.x = x;
+    }
+    
+    public void setY(int y)
+    {
+        this.y = y;
+    }
+    
     public void keyTyped(KeyEvent e)
     {
         
@@ -84,7 +106,7 @@ public class Ball extends JPanel implements ActionListener, KeyListener
     
     public static void main(String args[])
     {
-        Ball test = new Ball();
+        Ball test = new Ball(0,0);
         JFrame testJ = new JFrame();
         testJ.setTitle("Ball");
         testJ.setSize(600,600);
