@@ -2,19 +2,19 @@ import java.util.*;
 import java.io.File;
 public class ReadFile
 {
-    private Scanner scanner;
+    private static Scanner scanner;
     private String sp;
     private String numWalls;
     private String walls;
     private String numPaths;
     private String paths;
-    private String file = "Level1.txt";
-    public void openFile()
+    private String file;
+    public void openFile(String fileName)
     {
         try
         {
-            scanner = new Scanner (new File 
-                (file));
+            file = fileName;
+            scanner = new Scanner (new File (fileName));
         }
         catch(Exception e)
         {
@@ -34,6 +34,7 @@ public class ReadFile
             {
                 walls += scanner.next();
             }
+            //System.out.println(walls);
             numPaths = scanner.next();
             for(int j = 1; j <= Integer.parseInt(numPaths); j++)
             {
@@ -68,15 +69,16 @@ public class ReadFile
         return paths;
     }
     
-    public String getFileName()
+    public String getFile()
     {
         return file;
     }
     
-    public void setFileName(String file)
+    public void setFile(String file)
     {
         this.file = file;
     }
+   
     
     public void closeFile()
     {
@@ -85,8 +87,9 @@ public class ReadFile
     
     public static void main(String[] args)
     {
+        String file = "Level1.txt";
         ReadFile r = new ReadFile();
-        r.openFile();
+        r.openFile(file);
         r.readFile();
         r.closeFile();
     }

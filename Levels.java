@@ -23,8 +23,7 @@ public class Levels extends JPanel
         ArrayList<String> pathsStrings = new ArrayList<>();
         int levelCounter = 1;
         textFiles.add("Level1.txt");
-        
-        //textFiles.add("Level2.txt");
+        textFiles.add("Level2.txt");
          /* textFiles.add("Level3.txt");
          * textFiles.add("Level4.txt");
          * textFiles.add("Level5.txt");
@@ -38,9 +37,8 @@ public class Levels extends JPanel
         {
             ReadFile r = new ReadFile();
             file = textFiles.get(i);
-            r.setFileName(file);
             System.out.println("Level " + levelCounter + ": ");
-            r.openFile();
+            r.openFile(file);
             r.readFile();
             for(int j = 0; j < r.getWalls().length() - 4; j += 6)
             {
@@ -55,7 +53,7 @@ public class Levels extends JPanel
             for(int k = 0; k < r.getPaths().length() - 4; k += 6)
             {
                 if(r.getPaths().charAt(k) != ',' && r.getPaths().charAt(k) != '.')
-                {    
+                {   
                     Block block = new Block((Integer.parseInt(r.getPaths().substring(k,k+2))),
                             (Integer.parseInt(r.getPaths().substring(k+3,k+5))));
                     paths.add(block);
