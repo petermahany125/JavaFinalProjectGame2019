@@ -8,13 +8,12 @@ public class ReadFile
     private String walls;
     private String numPaths;
     private String paths;
-    private String file = "Level1.txt";
+    private static String fileName = "Level1.txt";
     public void openFile()
     {
         try
         {
-            scanner = new Scanner (new File 
-                (file));
+            scanner = new Scanner (new File (fileName));
         }
         catch(Exception e)
         {
@@ -34,6 +33,7 @@ public class ReadFile
             {
                 walls += scanner.next();
             }
+            System.out.println(walls);
             numPaths = scanner.next();
             for(int j = 1; j <= Integer.parseInt(numPaths); j++)
             {
@@ -70,12 +70,12 @@ public class ReadFile
     
     public String getFileName()
     {
-        return file;
+        return fileName;
     }
     
     public void setFileName(String file)
     {
-        this.file = file;
+        this.fileName = file;
     }
     
     public void closeFile()

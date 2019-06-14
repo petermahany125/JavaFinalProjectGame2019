@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.Timer;
 
-public class Ball extends JPanel implements ActionListener, KeyListener
+public class TestBall extends JPanel implements ActionListener, KeyListener
 {
     private int x=0;
     private int y=0;
@@ -21,7 +21,7 @@ public class Ball extends JPanel implements ActionListener, KeyListener
     private int rad=25;
     private Timer time = new Timer(4, this);
     
-    public Ball()
+    public TestBall()
     {
         time.start();
         addKeyListener(this);
@@ -84,7 +84,7 @@ public class Ball extends JPanel implements ActionListener, KeyListener
     
     public static void main(String args[])
     {
-        Ball test = new Ball();
+        TestBall test = new TestBall();
         JFrame testJ = new JFrame();
         testJ.setTitle("Ball");
         testJ.setSize(600,600);
