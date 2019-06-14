@@ -1,6 +1,5 @@
 //Rajiv Srinath
 //Ball
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -11,24 +10,24 @@ import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.Timer;
-
 public class Ball extends JPanel implements ActionListener, KeyListener
 {
     private int x;
     private int y;
-    private int xVel=0;
-    private int yVel=0;
-    private int rad=25;
+    private int xVel;
+    private int yVel;
+    private int rad = 25;
     private Timer time = new Timer(4, this);
-    private static Ball ball = new Ball(0,0);
-    public Ball(int xCor, int yCor)
+    private Ball ball = new Ball(0,0);
+    
+    public Ball(int x, int y)
     {
         time.start();
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        x = xCor;
-        y = yCor; 
+        this.x = x;
+        this.y = y;
     }
     
     public void paint(Graphics g)
@@ -37,14 +36,14 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         g.setColor(Color.MAGENTA);
         g.fillOval(ball.getX(),ball.getY(),rad,rad);
     }
-    
+
     public void actionPerformed(ActionEvent e)
     {
         x+=xVel;
         y+=yVel;
         repaint();
     }
-    
+
     public void keyPressed(KeyEvent e)
     {
         int key = e.getKeyCode();
@@ -71,31 +70,43 @@ public class Ball extends JPanel implements ActionListener, KeyListener
         }
         repaint();
     }
-    
+
     public void keyTyped(KeyEvent e)
     {
-        
+
     }
+
     public void keyReleased(KeyEvent e)
     {
         
     }
     
-    public void setX(int x)
+    public int getX()
     {
-        this.x = x;
+         return x;
+    }
+ 
+    public int getY()
+    {
+        return y;
     }
     
+    public void setX(int x)
+    {
+         this.x = x;
+    }
+ 
     public void setY(int y)
     {
-        this.y = y;
+         this.y = y;
     }
     
     public static void main(String args[])
     {
+        Ball ball = new Ball(0,0);
         JFrame frame = new JFrame();       
         frame.setTitle("Ball");
-        frame.setSize(600,600);
+        frame.setSize(600,700);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(ball);
