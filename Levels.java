@@ -23,7 +23,10 @@ public class Levels extends JPanel
         ArrayList<String> pathsStrings = new ArrayList<>();
         int levelCounter = 1;
         textFiles.add("Level1.txt");
+<<<<<<< HEAD
         textFiles.add("Level1.txt");
+=======
+>>>>>>> 5df0c61b581305e8c3110157da2aa66670e8b3c1
         //textFiles.add("Level2.txt");
          /* textFiles.add("Level3.txt");
          * textFiles.add("Level4.txt");
