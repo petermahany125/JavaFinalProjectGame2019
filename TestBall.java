@@ -22,9 +22,6 @@ public class TestBall extends JPanel implements ActionListener, KeyListener
     {
         time.start();
         addKeyListener(this);
-        //setSize(500,500);
-        //setTitle("Test Ball");
-        //setVisible(true);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         this.x=x;
