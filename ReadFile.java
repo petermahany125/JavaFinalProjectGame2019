@@ -34,7 +34,8 @@ public class ReadFile
             {
                 walls += scanner.next();
             }
-            //System.out.println(walls);
+            System.out.println(sp);
+            System.out.println(walls);
             numPaths = scanner.next();
             for(int j = 1; j <= Integer.parseInt(numPaths); j++)
             {

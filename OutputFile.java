@@ -1,3 +1,4 @@
+//Sean McAleer
 import java.io.*;
 import java.util.*;
 public class OutputFile 
@@ -15,48 +16,48 @@ public class OutputFile
             System.out.println("No file was found");
         }
     } 
-    
+
     public void output(int arr[]) throws IOException 
     {
-        FileOutputStream out = new FileOutputStream("HighScoreOutput.txt");
+        String pathname = "HighScoreOutput.txt";
+        File file = new File(pathname);
+        PrintWriter output = null;
+
+        int fNum = arr[0];
+        int sNum = arr[1];
+        int tNum = arr[2];
         try 
         {
-            for(int i = 0; i < arr.length; i++) 
-            {
-                //CHECK THIS JAVA API
-                out.write(arr[i]);
-            }
-            out.close();
+            output = new PrintWriter(file);
         }
-        catch(Exception e) 
+        catch(IOException ex) 
         {
             System.out.println("Error occured");
-            if (out != null) 
-            {
-                out.close();
-            }
-        } 
+            System.exit(1);
+        }
+
+        output.println("High Score: ");
+        output.printf("%d, %d, %d", fNum, sNum, tNum);
+        output.close();
     }
-    
+
     public void closeFileRead()
     {
         scanner.close();
     }
-    
+
     public static void main(String args[]) throws IOException 
     {  
         OutputFile o = new OutputFile();
         int[] arr = new int[3];
-    
         o.openFileRead();
         //REPLACE ME WITH CODE TO READ THE DATA INTO THE ARRAY
         for (int i = 0; i < 3; i++)
         {
             arr[i] = (int)(Math.random() * 100) + 1;
         }
-        
         o.closeFileRead();
-        
+
         for (int i = 0; i < arr.length - 1; i++)
         {
             int index = i;
@@ -70,10 +71,11 @@ public class OutputFile
             int smallerNumber = arr[index];
             arr[index] = arr[i];
             arr[i] = smallerNumber;
-           
         }
-        for (int i =0; i < arr.length; i++)
-        System.out.print(arr[i] + " ");
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i] + " ");
+        }
         o.output(arr);
         System.out.println("High score inputed");
     }
