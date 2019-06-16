@@ -16,74 +16,59 @@ public class Levels extends JPanel
     private int yPixels;
     private ArrayList<Block> walls = new ArrayList<>();
     private ArrayList<Block> paths = new ArrayList<>();
-    public Levels()
+    public Levels(String file)
     {
-        ArrayList<String> textFiles = new ArrayList<>();
         ArrayList<String> wallsStrings = new ArrayList<>();
         ArrayList<String> pathsStrings = new ArrayList<>();
-        int levelCounter = 1;
-        textFiles.add("Level1.txt");
-        textFiles.add("Level2.txt");
-        textFiles.add("Level3.txt");
-        /* textFiles.add("Level4.txt");
-         * textFiles.add("Level5.txt");
-         * textFiles.add("Level6.txt");
-         * textFiles.add("Level7.txt");
-         * textFiles.add("Level8.txt");
-         * textFiles.add("Level9.txt");
-         * textFiles.add("Level10.txt");
-         */
-        for(int i = 0; i < textFiles.size(); i++)
+        clearListOfBlocks(walls);
+        clearListOfBlocks(paths);
+        clearListOfStrings(wallsStrings);
+        clearListOfStrings(pathsStrings);
+        ReadFile r = new ReadFile();
+        this.file = file;
+        r.openFile(file);
+        r.readFile();
+        r.closeFile();
+        for(int j = 0; j < r.getWalls().length() - 3; j += 4)
         {
-            clearListOfBlocks(walls);
-            clearListOfBlocks(paths);
-            clearListOfStrings(wallsStrings);
-            clearListOfStrings(pathsStrings);
-            ReadFile r = new ReadFile();
-            file = textFiles.get(i);
-            System.out.println("Level " + levelCounter + ": ");
-            r.openFile(file);
-            r.readFile();
-            r.closeFile();
-            for(int j = 0; j < r.getWalls().length() - 4; j += 4)
-            {
-                xWalls = (Integer.parseInt(r.getWalls().substring(j,j+2)));
-                yWalls = (Integer.parseInt(r.getWalls().substring(j+2,j+4)));
-                Block block = new Block(xWalls,yWalls);
-                walls.add(block);
-                wallsStrings.add(Block.convertToString(block));
-            }
-            for(int k = 0; k < r.getPaths().length() - 4; k += 4)
-            {
-                xPaths = (Integer.parseInt(r.getPaths().substring(k,k+2)));
-                yPaths = (Integer.parseInt(r.getPaths().substring(k+2,k+4)));
-                Block block = new Block(xPaths,yPaths);
-                paths.add(block);
-                pathsStrings.add(Block.convertToString(block));
-            }
-            System.out.println(walls);
-            System.out.println(paths);
-            System.out.println(wallsStrings);
-            System.out.println(pathsStrings);
-            System.out.println("----");
-            levelCounter++;
+            xWalls = (Integer.parseInt(r.getWalls().substring(j,j+2)));
+            yWalls = (Integer.parseInt(r.getWalls().substring(j+2,j+4)));
+            Block block = new Block(xWalls,yWalls);
+            walls.add(block);
+            wallsStrings.add(Block.convertToString(block));
         }
+        for(int k = 0; k < r.getPaths().length() - 3; k += 4)
+        {
+            xPaths = (Integer.parseInt(r.getPaths().substring(k,k+2)));
+            yPaths = (Integer.parseInt(r.getPaths().substring(k+2,k+4)));
+            Block block = new Block(xPaths,yPaths);
+            paths.add(block);
+            pathsStrings.add(Block.convertToString(block));
+        }
+        System.out.println(walls);
+        System.out.println(paths);
+        System.out.println(wallsStrings);
+        System.out.println(pathsStrings);
+        System.out.println("----");
+        setBackground(Color.LIGHT_GRAY);
+
     }
 
     public void paintComponent(Graphics g)
     {
-        g.drawRect(50,50,600,600);
+        g.setColor(Color.BLACK);
         for (Block block : walls)
         {
-            xPixels = convertXToPixels(xWalls);
-            yPixels = convertYToPixels(yWalls);
-            block.draw(g, xPixels, yPixels, Color.BLACK);
+            xPixels = convertXToPixels(block.getX());
+            yPixels = convertYToPixels(block.getY());
+            g.fillRect(yPixels, xPixels, block.getSize(), block.getSize());
         }
+        g.setColor(Color.WHITE);
         for (Block block : paths)
         {
-            xPixels = convertXToPixels(xPaths);
-            yPixels = convertYToPixels(yPaths);
-            block.draw(g, xPixels, yPixels, Color.WHITE);
+            xPixels = convertXToPixels(block.getX());
+            yPixels = convertYToPixels(block.getY());
+            g.fillRect(yPixels, xPixels, block.getSize(), block.getSize());
         }
     }
 
@@ -116,7 +101,7 @@ public class Levels extends JPanel
     public static void main(String[] args)
     {
         Frame frame = new Frame(700,700);
-        frame.getContentPane().add(new Levels());
+        frame.getContentPane().add(new Levels("Level1.txt"));
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.LIGHT_GRAY);
     }
