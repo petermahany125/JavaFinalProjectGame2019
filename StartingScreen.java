@@ -12,11 +12,7 @@ public class StartingScreen
 {
     private static void createStartingScreen() throws IOException 
     {
-        JFrame frame = new JFrame("Paint the Spaces");
-
-        frame.setSize(700,700);
-        frame.setResizable(false);
-        frame.setVisible(true);
+        Frame frame = new Frame(700,700);
 
         Image image = ImageIO.read(new File("Background1.JPG"));
         Image newImage = image.getScaledInstance(600, 600, Image.SCALE_DEFAULT);
@@ -31,8 +27,6 @@ public class StartingScreen
         frame.pack();
 
         frame.add(p);
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static void main(String[] args) throws IOException 
