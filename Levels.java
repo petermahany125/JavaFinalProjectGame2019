@@ -14,6 +14,7 @@ public class Levels extends JPanel
     private int yWalls;
     private int xPixels;
     private int yPixels;
+    private ArrayList<Block> blocks = new ArrayList<>();
     private ArrayList<Block> walls = new ArrayList<>();
     private ArrayList<Block> paths = new ArrayList<>();
     public Levels(String file)
@@ -51,7 +52,6 @@ public class Levels extends JPanel
         System.out.println(pathsStrings);
         System.out.println("----");
         setBackground(Color.LIGHT_GRAY);
-
     }
 
     public void paintComponent(Graphics g)
@@ -62,6 +62,7 @@ public class Levels extends JPanel
             xPixels = convertXToPixels(block.getX());
             yPixels = convertYToPixels(block.getY());
             g.fillRect(yPixels, xPixels, block.getSize(), block.getSize());
+            blocks.add(new Block(xPixels, yPixels));
         }
         g.setColor(Color.WHITE);
         for (Block block : paths)
@@ -69,9 +70,15 @@ public class Levels extends JPanel
             xPixels = convertXToPixels(block.getX());
             yPixels = convertYToPixels(block.getY());
             g.fillRect(yPixels, xPixels, block.getSize(), block.getSize());
+            blocks.add(new Block(xPixels, yPixels));
         }
     }
 
+    public ArrayList<Block> getBlocks()
+    {
+        return blocks;
+    }
+    
     public void clearListOfBlocks(ArrayList<Block> blocks)
     {
         for(int i = blocks.size() - 1; i >= 0; i--)

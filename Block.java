@@ -13,6 +13,16 @@ public class Block
         y = yCoor;
     }
     
+    public Block(Color color)
+    {
+        this.color = color;
+    }
+    
+    public Color getColor()
+    {
+        return color;
+    }
+    
     public int getSize()
     {
         return size;
@@ -27,7 +37,12 @@ public class Block
     {
         return y;
     }
-
+    
+    public void setColor(Color color)
+    {
+        this.color = color; 
+    }
+    
     public static String convertToString(Block block)
     {
         return "Block: Length = " + block.getSize() + " Width = " + block.getSize() + " Coordinates = (" 
