@@ -16,7 +16,7 @@ public class Timer
  
         long end = System.currentTimeMillis();
         long diff = end - start;
-        
+
         int min = (int)((diff/1000) / 60);
         diff -= (int)((min * 1000) * 60);
         int seconds = (int)((diff/1000) % 60);
