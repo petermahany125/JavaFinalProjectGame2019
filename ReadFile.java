@@ -69,11 +69,6 @@ public class ReadFile
         return paths;
     }
 
-    public String getFile()
-    {
-        return file;
-    }
-
     public void setFile(String file)
     {
         this.file = file;
@@ -87,7 +82,7 @@ public class ReadFile
     public static void main(String[] args)
     {
         ReadFile r = new ReadFile();
-        r.openFile(r.getFile());
+        r.openFile("Level1.txt");
         r.readFile();
         r.closeFile();
     }
