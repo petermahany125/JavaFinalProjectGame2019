@@ -4,6 +4,7 @@ import java.util.*;
 public class OutputFile 
 {
     private Scanner scanner;
+    //opens the file "HighScoreOutput.txt"
     public void openFileRead()
     {
         try
@@ -17,6 +18,7 @@ public class OutputFile
         }
     } 
 
+    //outputs the three random numbers representing the high scores
     public void output(int arr[]) throws IOException 
     {
         String pathname = "HighScoreOutput.txt";
@@ -36,28 +38,32 @@ public class OutputFile
             System.exit(1);
         }
 
+        //methods used to display high score
         output.println("High Score: ");
         output.printf("%d, %d, %d", fNum, sNum, tNum);
         output.close();
     }
 
+    //closes file after it is read
     public void closeFileRead()
     {
         scanner.close();
     }
 
+    //performs the event of displaying high scores by invoking various methods
     public static void main(String args[]) throws IOException 
     {  
         OutputFile o = new OutputFile();
         int[] arr = new int[3];
         o.openFileRead();
-        //REPLACE ME WITH CODE TO READ THE DATA INTO THE ARRAY
+        //REPLACE ME WITH CODE TO READ THE DATA INTO THE ARRAY in Game class
         for (int i = 0; i < 3; i++)
         {
             arr[i] = (int)(Math.random() * 100) + 1;
         }
         o.closeFileRead();
 
+        //selection sort of three random numbers representing the highscores
         for (int i = 0; i < arr.length - 1; i++)
         {
             int index = i;
